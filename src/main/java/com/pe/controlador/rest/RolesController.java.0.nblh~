@@ -1,0 +1,81 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.pe.controlador.rest;
+
+import com.pe.interfaces.ICrud;
+import com.pe.interfaces.IJWT;
+import com.pe.interfaces.IJsonTransformer;
+import com.pe.util.UtilDefines;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ *
+ * @author dbermudez
+ */
+@RestController
+public class RolesController {
+
+    @Autowired
+    @Qualifier(UtilDefines.INSTANCE_JSONTRANSFORMER)
+    private IJsonTransformer jsonTransformer;
+    //
+    @Autowired
+    @Qualifier(UtilDefines.INSTANCE_ROLES)
+    private ICrud crud;
+    //
+    @Autowired
+    @Qualifier(UtilDefines.INSTANCE_JWT)
+    private IJWT jwt;
+
+    //@CrossOrigin
+    @RequestMapping(value = "/usuarios", method = RequestMethod.GET, produces = UtilDefines.APLJSON)
+    public void consultarTodo(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+        List<UsuariosDTO> arrayListDTO = null;
+        List<BussinessMessage> bussinessMessage = null;
+        String jsonSalida = null;
+        try {
+            arrayListDTO = crud.consultarTodo();
+            if (arrayListDTO != null && arrayListDTO.size() > 0) {
+                jsonSalida = jsonTransformer.toJson(arrayListDTO);
+
+                httpServletResponse.setStatus(HttpServletResponse.SC_OK);
+                httpServletResponse.setContentType(UtilDefines.CONTENT_TYPE);
+                httpServletResponse.getWriter().println(jsonSalida);
+            } else {
+                jsonSalida = UtilDefines.MESSAGE.replace(UtilDefines.MESSAGE_COMODIN, UtilDefines.MESSAGE_NOT_FIND_USER);
+                httpServletResponse.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                httpServletResponse.setContentType(UtilDefines.CONTENT_TYPE);
+                httpServletResponse.getWriter().println(jsonSalida);
+            }
+        } catch (BussinessException ex) {
+            bussinessMessage = ex.getBussinessMessages();
+            jsonSalida = jsonTransformer.toJson(bussinessMessage);
+            try {
+                httpServletResponse.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                httpServletResponse.setContentType(UtilDefines.CONTENT_TYPE);
+                httpServletResponse.getWriter().println(jsonSalida);
+            } catch (IOException ex1) {
+                Logger.getLogger(ServiciosController.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        } catch (Exception ex) {
+            try {
+                httpServletResponse.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                httpServletResponse.setContentType(UtilDefines.CONTENT_TYPE);
+                ex.printStackTrace(httpServletResponse.getWriter());
+            } catch (IOException ex1) {
+                Logger.getLogger(ServiciosController.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        }
+    }
+}
