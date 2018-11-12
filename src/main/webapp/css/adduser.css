@@ -1,6 +1,6 @@
 /* 
-    Document   : singin
-    Created on : 03-sep-2018, 11:48:46
+    Document   : adduser
+    Created on : 12-nov-2018, 14:22:05
     Author     : dbermudez
     Description:
         Purpose of the stylesheet follows.
@@ -10,40 +10,19 @@
    TODO customize this sample style
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
-html,
-body {
-    height: 100%;
-}
 
-body {
-    display: -ms-flexbox;
-    display: -webkit-box;
-    display: flex;
-    -ms-flex-align: center;
-    -ms-flex-pack: center;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background-color: #f5f5f5;
-}
 
 .form-signin {
     width: 100%;
     max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
-}
-.form-signin .checkbox {
-    font-weight: 400;
+    padding: -5px;
+    margin: 10px; /*auto;*/
 }
 .form-signin .form-control {
     position: relative;
     box-sizing: border-box;
     height: auto;
-    padding: 10px;
+    padding: 8px;
     font-size: 16px;
 }
 .form-signin .form-control:focus {
@@ -54,8 +33,14 @@ body {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
 .form-signin input[type="password"] {
-    margin-bottom: 10px;
+    margin-bottom: -1px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+

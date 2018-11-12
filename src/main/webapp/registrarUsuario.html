@@ -12,7 +12,7 @@ and open the template in the editor.
         <!-- Bootstrap core CSS -->
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
         <!-- Custom styles for this template -->
-        <link href="css/menu.css" rel="stylesheet"/>
+        <link href="css/adduser.css" rel="stylesheet"/>
         <!-- Jquery -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!--JS need-->
@@ -25,6 +25,7 @@ and open the template in the editor.
         <script type="text/javascript" src="js/AJAXPetition.js"></script>
         <!--JS local-->
         <script type="text/javascript" src="js/Menu.js"></script>
+        <script type="text/javascript" src="js/UserService.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body onload="menuPrincipal('registrarUsuario.html')">
@@ -48,6 +49,32 @@ and open the template in the editor.
             </nav>
             <div class="jumbotron text-left text-primary">
                 <h1>Registrar Usuario</h1>
+                <form class="form-signin" onsubmit="return false">
+                    <label for="inputUser" class="sr-only">Cuenta Usuario</label>
+                    <input type="text" id="inputUser" class="form-control" placeholder="Cuenta" required autofocus />
+                    <label for="inputEmail" class="sr-only">Correo Electronico</label>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Correo E-" required />
+                    <label for="inputNombre" class="sr-only">Nombre</label>
+                    <input type="text" id="inputNombre" class="form-control" placeholder="Nombre" required />
+                    <label for="inputTipo" class="sr-only">Tipo de Usuario</label>
+                    <select id="inputTipo" required class="form-control">
+                        <option value="" selected>Selecione un tipo de Usuario</option>
+                        <option value="1">Administrador</option>
+                        <option value="2">Consultas</option>
+                    </select>
+                    <label for="inputApellido" class="sr-only">Apellido</label>
+                    <input type="text" id="inputApellido" class="form-control" placeholder="Apellido" required />
+                    <label for="inputTelefono" class="sr-only">Telefono</label>
+                    <input type="text" id="inputTelefono" class="form-control" placeholder="Telefono" required />
+                    <label for="inputPassword" class="sr-only">Contraseña</label>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required />
+                    <label for="inputPasswordAgain" class="sr-only">Repetir Contraseña</label>
+                    <input type="password" id="inputPasswordAgain" class="form-control" placeholder="Repetir Contraseña" required />
+                    <button id="buttonSubmit" class="btn btn-lg btn-primary btn-block" type="submit" onclick="registrar()">Registrar Usuario</button>
+                </form>
+                <form class="form-signin" onsubmit="return false">
+                    <button id="buttonQuery" class="btn btn-lg btn-primary btn-block" type="submit" onclick="consultar()">Consultar Usuarios</button>
+                </form>
             </div>
         </div>
         <footer class = "footer tfont">
