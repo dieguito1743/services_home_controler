@@ -1,0 +1,42 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : nov 10, 2018, 9:43:48 p.m.
+    Author     : DiegoDavid
+*/
+
+.centrar
+{
+    position: absolute;
+    /*nos posicionamos en el centro del navegador*/
+    top:50%;
+    left:50%;
+    /*determinamos una anchura*/
+    width:800px;
+    /*indicamos que el margen izquierdo, es la mitad de la anchura*/
+    margin-left:-400px;
+    /*determinamos una altura*/
+    height:600px;
+    /*indicamos que el margen superior, es la mitad de la altura*/
+    margin-top:-300px;
+    //border:1px solid #808080;
+    //padding:5px;
+}
+
+body {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.navbar {
+  margin-bottom: 18px;
+}
+
+.tfont {
+    font-size: 10px;
+}
+
+

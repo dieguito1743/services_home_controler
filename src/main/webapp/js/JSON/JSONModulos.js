@@ -19,4 +19,5 @@ function JSONModulos(){
     this.idmodulo = -1;
     this.nombremodulo = "";
     this.nivelesmodulo = -1;
+    this.page = "#";
 }

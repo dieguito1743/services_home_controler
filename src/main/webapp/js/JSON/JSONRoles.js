@@ -17,9 +17,16 @@ function JSONRoles(idrol, usuario, modulo, nivelModulo){
     this.nivelModulo= nivelModulo;
 }*/
 
-function JSONRoles(usuario, modulo){
+/*function JSONRoles(usuario, modulo){
     this.idrol = -1;
     this.usuario = usuario;
     this.modulo = modulo;
+    this.nivelModulo= -1
+}*/
+
+function JSONRoles(){
+    this.idrol = -1;
+    this.usuario = new JSONUsuarios();
+    this.modulo = new JSONModulos();
     this.nivelModulo= -1
 }

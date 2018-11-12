@@ -21,10 +21,19 @@ function JSONUsuarios_Servicios(idusuario_servicio, servicio, usuario, fechainic
     this.estado = estado;
 }*/
 
-function JSONUsuarios_Servicios(servicio, usuario){
+/*function JSONUsuarios_Servicios(servicio, usuario){
     this.idusuario_servicio = -1;
     this.servicio = servicio;
     this.usuario = usuario;
+    this.fechainicio = "";
+    this.fechaalta = "";
+    this.estado = -1;
+}*/
+
+function JSONUsuarios_Servicios(){
+    this.idusuario_servicio = -1;
+    this.servicio = new JSONServicios();
+    this.usuario = new JSONUsuarios();
     this.fechainicio = "";
     this.fechaalta = "";
     this.estado = -1;

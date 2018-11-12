@@ -7,6 +7,7 @@
 var AJAX_URL_CONTEXT = '/services_home_controlador';
 var AJAX_URL_LOGIN = AJAX_URL_CONTEXT + '/usuarios/login';
 var AJAX_URL_GET_ROLES = AJAX_URL_CONTEXT + '/roles/';
+var menuPrincipal = "menuPrincipal.html";
 /*******************Metodos************************************/
 var AJAX_TYPE_GET = 'GET';
 var AJAX_TYPE_POST = 'POST';

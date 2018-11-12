@@ -35,10 +35,26 @@ function JSONRecibos(idrecibo, usuario_servicio, servicio, periodorecibo, medici
     this.estadorecibo = estadorecibo;
 }*/
 
-function JSONRecibos(usuario_servicio, servicio){
+/*function JSONRecibos(usuario_servicio, servicio){
     this.idrecibo = -1;
     this.usuario_servicio = usuario_servicio;
     this.servicio = servicio;
+    this.periodorecibo = -1;
+    this.medicioninicial = -1;
+    this.medicionfinal = -1;
+    this.fechami = "";
+    this.fechamf = "";
+    this.montorecibo = -1;
+    this.consumorecibo = -1;
+    this.preciounidad = -1;
+    this.fechavencimiento = "";
+    this.estadorecibo = -1;
+}*/
+
+function JSONRecibos(){
+    this.idrecibo = -1;
+    this.usuario_servicio = new JSONUsuarios_Servicios();
+    this.servicio = new JSONServicios();
     this.periodorecibo = -1;
     this.medicioninicial = -1;
     this.medicionfinal = -1;

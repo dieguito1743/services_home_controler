@@ -14,7 +14,14 @@ var FUNCTION_AJAX_ROLES = {
     f_ok: function (data, status, xhr) {
         //obtener los rolesde usuarios
         //dar permisos solo a los modulos accedidos
-        console.log(JSON.stringify(data));
+        //var autorization = xhr.getResponseHeader('Authorization');
+        if(/*autorization == null || autorization == undefined ||*/ data.message != null || data.message != undefined){
+            localStorage.setItem('authorization', autorization);
+            console.log(data.message);
+        }else{
+            localStorage.setItem('roles', JSON.stringify(data));
+            window.location.href = menuPrincipal;
+        }
     },
     f_error: function (data, status, xhr) {
         console.log('ERROR GER ROLES ' + data + ' ' + status + ' ' + xhr);
